@@ -1,0 +1,46 @@
+package Test;
+
+import pojo.User;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.Parameter;
+
+/**
+ * @author by wyl
+ * @date 2021/9/27.17点05分
+ * 获取方法头
+ */
+
+public class T_5 {
+    public static void main(String[] args) {
+
+        Class<User> clazz = User.class;
+
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+
+        for (Method method : declaredMethods) {
+
+            String purview = Modifier.toString(method.getModifiers());    //得到权限修饰符
+
+            Class<?> returnType = method.getReturnType();                 //得到返回类型
+            String returnTypeName = returnType.getName();                 //得到返回类型名称
+
+            String methodName = method.getName();                         //得到方法名称
+
+            Class<?>[] parameterTypes = method.getParameterTypes();       //得到参数类型
+            Parameter[] parameters = method.getParameters();              //得到参数类型
+
+            Class<?>[] exceptionTypes = method.getExceptionTypes();       //得到异常类型
+
+            for (int i = 0; i < parameters.length; i++) {
+                String parameterType = parameterTypes[i].getName();        //得到参数类型名称
+                String parameterName = parameters[i].getName();            //得到参数名称
+//                String exceptionType = exceptionTypes.length > 0 ? " throws" + exceptionTypes[i].getName() : "";
+                System.out.println(purview + " " + returnTypeName + " " + methodName + "(" + parameterType + " " + parameterName + ")");
+            }
+
+        }
+
+    }
+}
