@@ -33,6 +33,9 @@ public class ProxyInvocationHandler<T> implements InvocationHandler {
                                 this.getClass().getClassLoader(),
                                 impl.getClass().getInterfaces(),
                                 this);
+        
+        //public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)     面向接口编程   
+        
     }
 
     //处理代理类，并返回结果
