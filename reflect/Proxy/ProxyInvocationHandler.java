@@ -32,12 +32,12 @@ public class ProxyInvocationHandler<T> implements InvocationHandler {
                         Proxy.newProxyInstance(
                                 this.getClass().getClassLoader(),
                                 impl.getClass().getInterfaces(),
-                                this);
-        
+                                this
+                        );
         //public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)     面向接口编程   
-        
     }
-
+        
+        
     //处理代理类，并返回结果
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
